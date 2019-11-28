@@ -1,0 +1,17 @@
+.dashboardContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.widgetContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+}
+
+.graphContainer {
+  flex-grow: 3;
+  padding: 20px
+}
