@@ -1,12 +1,22 @@
 import { AppActions } from "./App.actions";
 import { Record, List } from "immutable";
 
+export interface ITransaction {
+  timestamp: string;
+  toAddress: string;
+  amount: string;
+}
+
 interface IAppState {
   loggedInAddress: string;
+  balance: string;
+  transactions: List<ITransaction>;
 }
 
 const appStateInitialRecord = Record<IAppState>({
-  loggedInAddress: ""
+  loggedInAddress: "",
+  balance: "",
+  transactions: List()
 });
 
 export function appReducer(
