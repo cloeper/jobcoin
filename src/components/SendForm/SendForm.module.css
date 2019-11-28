@@ -1,0 +1,13 @@
+.sendFormHeader {
+  color: white;
+  background-color: #48AAE2;
+}
+
+.sendForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
+  width: 350px;
+  margin: 20px;
+}

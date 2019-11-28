@@ -13,5 +13,6 @@
 
 .graphContainer {
   flex-grow: 3;
-  padding: 20px
+  padding: 20px;
+  height: 100%;
 }

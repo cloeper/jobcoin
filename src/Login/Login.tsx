@@ -41,7 +41,6 @@ export const Login: React.FC = () => {
             <Button
               disabled={jobcoinAddress.length === 0}
               variant="contained"
-              className={styles.signInButton}
               color="primary"
               onClick={onSubmit}
             >
