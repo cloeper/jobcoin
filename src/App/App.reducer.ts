@@ -25,8 +25,11 @@ export function appReducer(
 ) {
   switch (action.type) {
     case AppActions.SET_LOGGED_IN_ADDRESS:
-      const jobcoinAddress = action.payload.jobcoinAddress;
-      return state.set("loggedInAddress", jobcoinAddress);
+      return state.set("loggedInAddress", action.payload.jobcoinAddress);
+    case AppActions.SET_BALANCE:
+      return state.set("balance", action.payload.balance);
+    case AppActions.SET_TRANSACTIONS:
+      return state.set("transactions", action.payload.transactions);
     default:
       return state;
   }

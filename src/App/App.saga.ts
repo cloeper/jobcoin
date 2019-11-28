@@ -1,9 +1,8 @@
-import { takeLatest, put, takeEvery } from "redux-saga/effects";
+import { takeLatest, put, call } from "redux-saga/effects";
 import { appActions, AppActions } from "./App.actions";
+import { browserHistory } from "../browserHistory";
 
-function* fetchTransactions(
-  action: any /*{ payload: { jobcoinAddress: string } }*/
-) {
+function* fetchTransactions(action: any) {
   const address = action.payload.jobcoinAddress;
 
   const data = yield fetch(
@@ -18,8 +17,9 @@ function* fetchTransactions(
   yield put(appActions.setLoggedInAddress(address));
   yield put(appActions.setBalance(data.balance));
   yield put(appActions.setTransactions(data.transactions));
+  browserHistory.push("/dashboard");
 }
 
 export function* appSaga() {
-  yield takeEvery(AppActions.FETCH_TRANSACTIONS, fetchTransactions);
+  yield takeLatest(AppActions.FETCH_TRANSACTIONS, fetchTransactions);
 }

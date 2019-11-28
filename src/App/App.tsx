@@ -1,21 +1,17 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 import styles from "./App.module.css";
 import { Login } from "../Login/Login";
 import { store } from "../store";
 import { Dashboard } from "../Dashboard/Dashboard";
+import { browserHistory } from "../browserHistory";
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <div className={styles.appContainer}>
-        <Router>
+        <Router history={browserHistory}>
           <Switch>
             <Route path="/login">
               <Login />
