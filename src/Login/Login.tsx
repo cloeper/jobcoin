@@ -34,7 +34,7 @@ export const Login: React.FC = () => {
               className={styles.signInButton}
               color="primary"
               onClick={() =>
-                dispatch(appActions.setLoggedInAddress(jobcoinAddress))
+                dispatch(appActions.fetchTransactions(jobcoinAddress))
               }
             >
               Sign In

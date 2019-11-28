@@ -1,9 +1,10 @@
-import { SendActions } from "./Send.actions";
+import { SendActions } from "../Dashboard/Send.actions";
 import { Record, List } from "immutable";
 
 interface ITransactions {
-  destination: string;
-  amount: number;
+  timestamp: string;
+  toAddress: string;
+  amount: string;
 }
 
 interface ISendState {
@@ -19,13 +20,13 @@ export function sendReducer(
   action: { type: string; payload: any }
 ) {
   switch (action.type) {
-    case SendActions.SEND_JOBCOIN:
-      const destination = action.payload.destination;
-      const amount = action.payload.amount;
-      return state.set(
-        "transactions",
-        state.transactions.push({ destination, amount })
-      );
+    // case SendActions.SEND_JOBCOIN:
+    //   const destination = action.payload.destination;
+    //   const amount = action.payload.amount;
+    //   return state.set(
+    //     "transactions",
+    //     state.transactions.push({ destination, amount })
+    //   );
     default:
       return state;
   }
