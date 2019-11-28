@@ -7,7 +7,7 @@ export interface ITransaction {
   amount: string;
 }
 
-interface IAppState {
+export interface IAppState {
   loggedInAddress: string;
   balance: string;
   transactions: List<ITransaction>;
