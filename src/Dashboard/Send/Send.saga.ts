@@ -16,8 +16,6 @@ function* sendJobcoin(action: any) {
     }
   ).then(response => response.json());
 
-  console.log("SEND RES", response);
-
   if (response.status === "OK") {
     yield put(
       sendActions.setSendStatus(
@@ -25,7 +23,7 @@ function* sendJobcoin(action: any) {
         `${amount} Jobcoins sent to ${toAddress}`
       )
     );
-    yield put(appActions.fetchAllTransactions());
+    yield put(appActions.fetchTransactionsForUser(fromAddress));
   } else if (response.error) {
     yield put(
       sendActions.setSendStatus(

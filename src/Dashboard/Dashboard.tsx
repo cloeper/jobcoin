@@ -8,6 +8,7 @@ import { SendForm } from "../components/SendForm/SendForm";
 import { History } from "../components/History/History";
 import { SendStatus } from "./Send/Send.actions";
 import { Alert, AlertTypes } from "../components/Alert/Alert";
+import { NavBar } from "../components/NavBar/NavBar";
 
 const getBalance = createSelector(
   (stateStore: IStateStore) => stateStore,
@@ -36,27 +37,30 @@ export const Dashboard: React.FC = () => {
   const sendState = useSelector(getSendState);
 
   return (
-    <div className={styles.dashboardContainer}>
-      <div className={styles.widgetContainer}>
-        <Balance balance={balance} loggedInAddress={loggedInAddress} />
-        <br />
-        <SendForm />
+    <React.Fragment>
+      <NavBar loggedInAddress={loggedInAddress} />
+      <div className={styles.dashboardContainer}>
+        <div className={styles.widgetContainer}>
+          <Balance balance={balance} loggedInAddress={loggedInAddress} />
+          <br />
+          <SendForm />
+        </div>
+        <div className={styles.graphContainer}>
+          <History transactions={transactions} />
+        </div>
+        <Alert
+          message={sendState.message}
+          alertType={
+            sendState.sendStatus === SendStatus.SUCCESS
+              ? AlertTypes.SUCCESS
+              : AlertTypes.ERROR
+          }
+          isOpen={
+            sendState.sendStatus === SendStatus.ERROR ||
+            sendState.sendStatus === SendStatus.SUCCESS
+          }
+        />
       </div>
-      <div className={styles.graphContainer}>
-        <History transactions={transactions} />
-      </div>
-      <Alert
-        message={sendState.message}
-        alertType={
-          sendState.sendStatus === SendStatus.SUCCESS
-            ? AlertTypes.SUCCESS
-            : AlertTypes.ERROR
-        }
-        isOpen={
-          sendState.sendStatus === SendStatus.ERROR ||
-          sendState.sendStatus === SendStatus.SUCCESS
-        }
-      />
-    </div>
+    </React.Fragment>
   );
 };

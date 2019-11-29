@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.7.0",
     "@nivo/line": "^0.59.3",
+    "date-fns": "^2.8.1",
     "history": "^4.10.1",
     "immutable": "^4.0.0-rc.12",
     "nivo": "^0.31.0",

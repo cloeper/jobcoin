@@ -19,7 +19,6 @@ export const Login: React.FC = () => {
     event.preventDefault();
 
     if (jobcoinAddress.length > 0) {
-      dispatch(appActions.fetchAllTransactions());
       dispatch(appActions.fetchTransactionsForUser(jobcoinAddress));
     }
   };

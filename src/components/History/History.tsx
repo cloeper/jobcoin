@@ -3,6 +3,7 @@ import { Card } from "@material-ui/core";
 import { ResponsiveLine } from "@nivo/line";
 import { ITransaction } from "../../App/App.reducer";
 import { List } from "immutable";
+import { format } from "date-fns";
 
 interface IHistoryProps {
   transactions: List<ITransaction>;
@@ -14,18 +15,23 @@ export const History: React.FC<IHistoryProps> = props => {
       <ResponsiveLine
         data={[
           {
-            id: "Transactions",
-            data: props.transactions.toJS().map(transaction => {
-              console.log("TRANS", transaction);
+            id: "transactions",
+            data: props.transactions
+              .map(transaction => {
+                const formattedDate = format(
+                  new Date(transaction.timestamp),
+                  "MM-dd-yy HH:mm:ss:SSS"
+                );
 
-              return {
-                x: transaction.timestamp,
-                y: transaction.amount
-              };
-            }) as any
+                return {
+                  x: formattedDate,
+                  y: transaction.amount
+                };
+              })
+              .toArray()
           }
         ]}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 25, right: 70, bottom: 125, left: 60 }}
         xScale={{ type: "point" }}
         yScale={{ type: "linear", stacked: true, min: 0, max: "auto" }}
         axisTop={null}
@@ -34,9 +40,9 @@ export const History: React.FC<IHistoryProps> = props => {
           orient: "bottom",
           tickSize: 5,
           tickPadding: 5,
-          tickRotation: 0,
-          legend: "Transactions over Time",
-          legendOffset: 36,
+          tickRotation: 45,
+          legend: "Transaction Date",
+          legendOffset: 100,
           legendPosition: "middle"
         }}
         axisLeft={{
@@ -48,11 +54,15 @@ export const History: React.FC<IHistoryProps> = props => {
           legendOffset: -40,
           legendPosition: "middle"
         }}
-        colors={{ scheme: "nivo" }}
+        curve="monotoneX"
+        colors={{ scheme: "category10" }}
         pointSize={10}
         pointColor={{ theme: "background" }}
         pointBorderWidth={2}
         pointBorderColor={{ from: "serieColor" }}
+        enablePointLabel={true}
+        enableGridY={false}
+        enableSlices={"x"}
         pointLabel="y"
         pointLabelYOffset={-12}
         useMesh={true}

@@ -21,9 +21,6 @@ export const appActions = {
       jobcoinAddress
     }
   }),
-  fetchAllTransactions: () => ({
-    type: AppActions.FETCH_ALL_TRANSACTIONS
-  }),
   setTransactions: (transactions: ITransaction[]) => ({
     type: AppActions.SET_TRANSACTIONS,
     payload: {
