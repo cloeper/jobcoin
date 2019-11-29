@@ -30,7 +30,7 @@ function* sendJobcoin(action: any) {
     yield put(
       sendActions.setSendStatus(
         SendStatus.ERROR,
-        `Error! Cannot send jobcoin(s) ${response.error}`
+        `Error! Cannot send jobcoin(s). ${response.error}`
       )
     );
   }

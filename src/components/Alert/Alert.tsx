@@ -1,8 +1,7 @@
 import React from "react";
-import { SnackbarContent, Snackbar } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
-import clsx from "clsx";
 
 export enum AlertTypes {
   SUCCESS = "SUCCESS",
