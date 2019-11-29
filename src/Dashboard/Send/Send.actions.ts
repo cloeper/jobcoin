@@ -1,7 +1,12 @@
 export enum SendActions {
   SEND_JOBCOIN = "SEND_JOBCOIN",
-  SEND_SUCCESS = "SEND_SUCCESS",
-  SEND_FAILURE = "SEND_FAILURE"
+  SET_SEND_STATUS = "SET_SEND_STATUS"
+}
+
+export enum SendStatus {
+  ERROR = "ERROR",
+  SUCCESS = "SUCCESS",
+  INIT = "INIT"
 }
 
 export const sendActions = {
@@ -13,13 +18,11 @@ export const sendActions = {
       amount
     }
   }),
-  sendSuccess: () => ({
-    type: SendActions.SEND_SUCCESS
-  }),
-  sendFailure: (failureMessage: string) => ({
-    type: SendActions.SEND_SUCCESS,
+  setSendStatus: (status: SendStatus, message: string) => ({
+    type: SendActions.SET_SEND_STATUS,
     payload: {
-      failureMessage
+      status,
+      message
     }
   })
 };

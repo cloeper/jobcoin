@@ -1,5 +1,5 @@
 import { takeLatest, put } from "redux-saga/effects";
-import { SendActions } from "./Send.actions";
+import { SendActions, sendActions, SendStatus } from "./Send.actions";
 import { appActions } from "../../App/App.actions";
 
 function* sendJobcoin(action: any) {
@@ -18,8 +18,21 @@ function* sendJobcoin(action: any) {
 
   console.log("SEND RES", response);
 
-  if (response.status == "OK") {
+  if (response.status === "OK") {
+    yield put(
+      sendActions.setSendStatus(
+        SendStatus.SUCCESS,
+        `${amount} Jobcoins sent to ${toAddress}`
+      )
+    );
     yield put(appActions.fetchAllTransactions());
+  } else if (response.error) {
+    yield put(
+      sendActions.setSendStatus(
+        SendStatus.ERROR,
+        `Error! Cannot send jobcoin(s) ${response.error}`
+      )
+    );
   }
 }
 
