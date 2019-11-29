@@ -23,12 +23,8 @@ export const SendForm: React.FC = () => {
   const [toAddress, setToAddress] = useState("");
   const [amount, setAmount] = useState("");
 
-  const onSubmit = (event: any) => {
-    event.preventDefault();
-
+  const onSubmit = () => {
     if (toAddress.length > 0 && amount.length > 0) {
-      console.log("SENDING");
-
       dispatch(sendActions.sendJobcoin(fromAddress, toAddress, amount));
     }
   };
@@ -37,8 +33,9 @@ export const SendForm: React.FC = () => {
     <Card>
       <CardHeader title="Send Jobcoin" className={styles.sendFormHeader} />
       <CardContent>
-        <form onSubmit={onSubmit} className={styles.sendForm}>
+        <form className={styles.sendForm} onSubmit={onSubmit}>
           <TextField
+            autoFocus={true}
             label="Destiantion Address"
             placeholder="Destiantion Address"
             onChange={event => setToAddress(event.target.value)}
