@@ -1,3 +1,39 @@
+# Hello!
+
+Thanks for taking the time to review my code challenge submition. I really enjoyed making this and I hope you like it.
+
+# Libraries Used
+
+* *Language*: TypeScript
+* *View Layer*: React 16.12 (using Hooks exclusively)
+* *Application State*: Redux
+* *Side Effect Handler*: Redux Saga
+* *Immutability*: Immutable.js
+* *Data Visualization*: [Nivo]('http://nivo.rocks')
+* *Component Library*: Material UI
+* *Memoization*: Reselect
+
+# Why did you make an entire app?
+
+Three reasons:
+
+1. I had the time. My submition wasn't likely to get reviewed during Thanksgiving week so there was no need to rush.
+2. I wanted to submit something that could possibly resemble production code. Writing this in codepen with jQuery was certainly an option, but this is a better example of my skills.
+3. I wanted a foundational application for personal projects that incorporated all the libraries you see.
+
+# Personal Critique
+
+I included the lirbaries I did because I see how, together, they make a robust application space that can be extended to do complex things in ways that can be reasoned about without too much difficulty.
+
+That said, I am by no means an expert at some. I'm relatively new to sagas, and I likely do not have optimal patterns in place, particularly in the root saga. While I've used TypeScript for years, I still get hung up on complex types from time to time. You'll notice, for instance, I use `any` in a few places. This was to avoid getting into generics for the excersice.
+
+Aside from those things, there was one bug I spent some time debugging but couldn't satisfactorially resolve. Sending a jobcoin on enter. Despite the code being nearly identical to the code for login, it simply does not work. A real mystery, that.
+
+Overall, I'm pleased with how this turned out. I'm looking forward to feedback on what could have been done differetly.
+
+----
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
