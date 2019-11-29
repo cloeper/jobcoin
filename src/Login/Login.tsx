@@ -18,8 +18,10 @@ export const Login: React.FC = () => {
   const onSubmit = (event: any) => {
     event.preventDefault();
 
-    if (jobcoinAddress.length > 0)
-      dispatch(appActions.fetchTransactions(jobcoinAddress));
+    if (jobcoinAddress.length > 0) {
+      dispatch(appActions.fetchAllTransactions());
+      dispatch(appActions.fetchTransactionsForUser(jobcoinAddress));
+    }
   };
 
   return (

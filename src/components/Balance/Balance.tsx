@@ -4,14 +4,20 @@ import styles from "./Balance.module.css";
 
 interface IBalance {
   balance: string;
+  loggedInAddress: string;
 }
 
 export const Balance: React.FC<IBalance> = props => {
   return (
     <Card>
-      <CardHeader className={styles.balanceHeader} title="Balance" />
+      <CardHeader
+        className={styles.balanceHeader}
+        title={`Balance for ${props.loggedInAddress || "Unknown"}`}
+      />
       <CardContent>
-        <Typography component="h1">৳{props.balance}</Typography>
+        <Typography variant="h3" component="h1">
+          {props.balance || 0}
+        </Typography>
       </CardContent>
     </Card>
   );
