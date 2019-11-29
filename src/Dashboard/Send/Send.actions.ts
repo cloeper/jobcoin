@@ -3,10 +3,11 @@ export enum SendActions {
 }
 
 export const sendActions = {
-  sendJobcoin: (destination: string, amount: number) => ({
+  sendJobcoin: (fromAddress: string, toAddress: string, amount: number) => ({
     type: SendActions.SEND_JOBCOIN,
     payload: {
-      destination,
+      fromAddress,
+      toAddress,
       amount
     }
   })
