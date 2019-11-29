@@ -29,7 +29,7 @@ export function appReducer(
     case AppActions.SET_BALANCE:
       return state.set("balance", action.payload.balance);
     case AppActions.SET_TRANSACTIONS:
-      return state.set("transactions", action.payload.transactions);
+      return state.set("transactions", List(action.payload.transactions));
     default:
       return state;
   }

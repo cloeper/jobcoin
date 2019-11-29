@@ -1,7 +1,8 @@
 import { ITransaction } from "./App.reducer";
 
 export enum AppActions {
-  FETCH_TRANSACTIONS = "FETCH_TRANSACTIONS",
+  FETCH_TRANSACTIONS_FOR_USER = "FETCH_TRANSACTIONS_FOR_USER",
+  FETCH_ALL_TRANSACTIONS = "FETCH_ALL_TRANSACTIONS",
   SET_LOGGED_IN_ADDRESS = "SET_LOGGED_IN_ADDRESS",
   SET_BALANCE = "SET_BALANCE",
   SET_TRANSACTIONS = "SET_TRANSACTIONS"
@@ -14,11 +15,14 @@ export const appActions = {
       jobcoinAddress
     }
   }),
-  fetchTransactions: (jobcoinAddress: string) => ({
-    type: AppActions.FETCH_TRANSACTIONS,
+  fetchTransactionsForUser: (jobcoinAddress: string) => ({
+    type: AppActions.FETCH_TRANSACTIONS_FOR_USER,
     payload: {
       jobcoinAddress
     }
+  }),
+  fetchAllTransactions: () => ({
+    type: AppActions.FETCH_ALL_TRANSACTIONS
   }),
   setTransactions: (transactions: ITransaction[]) => ({
     type: AppActions.SET_TRANSACTIONS,
