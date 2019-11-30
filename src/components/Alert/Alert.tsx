@@ -14,7 +14,7 @@ interface IAlertProps {
   isOpen: boolean;
 }
 
-const useStyles1 = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: any) => ({
   SUCCESS: {
     backgroundColor: green[600]
   },
@@ -24,7 +24,7 @@ const useStyles1 = makeStyles((theme: any) => ({
 }));
 
 export const Alert: React.FC<IAlertProps> = props => {
-  const classes = useStyles1();
+  const classes = useStyles();
 
   return (
     <Snackbar
