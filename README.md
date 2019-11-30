@@ -33,7 +33,6 @@ Overall, I'm pleased with how this turned out. I'm looking forward to feedback o
 
 ----
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
