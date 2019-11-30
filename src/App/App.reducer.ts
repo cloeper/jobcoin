@@ -4,7 +4,9 @@ import { Record, List } from "immutable";
 export interface ITransaction {
   timestamp: string;
   toAddress: string;
+  fromAddress: string;
   amount: string;
+  balance: number; // This is added during preprosessing for visualization
 }
 
 export interface IAppState {

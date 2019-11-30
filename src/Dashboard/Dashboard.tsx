@@ -46,7 +46,10 @@ export const Dashboard: React.FC = () => {
           <SendForm />
         </div>
         <div className={styles.graphContainer}>
-          <History transactions={transactions} />
+          <History
+            transactions={transactions}
+            loggedInAddress={loggedInAddress}
+          />
         </div>
         <Alert
           message={sendState.message}
